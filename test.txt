@@ -1,2 +1,3 @@
 Hello Git!
 New string...
+Add new line!!!
