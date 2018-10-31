@@ -1,0 +1,112 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/* html, body, div, span, applet, object, iframe,
+/*h1, h2, h3, h4, h5, h6, *//*p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+/*b, u, i, center,
+dl, dt, dd, ol, ul, li,*//*
+fieldset, /*form,*//* label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+} */
+/* HTML5 display-role reset for older browsers */
+/* article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+} */
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.category {
+		margin: 0px 0px 10px auto;
+		text-align: center;
+}
+
+div.wrap  {
+    margin-top: 75px;
+}
+
+.wrapper  {
+	width: 855px;
+	margin: 10px auto;
+	background: #f0f0f0;
+	padding: 20px 10px 20px 20px;
+	box-shadow: 0 0 5px rgba(0,0,0, .3);
+	overflow: hidden;
+}
+
+.item  {
+	background: #fff;
+	width: 150px;
+	height: 120px;
+	float: left;
+	text-align: center;
+	box-shadow: 0 0 5px rgba(0,0,0, .4);
+	margin: 0 15px 15px 0;
+}
+
+.item > div {
+	position: relative;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+} 
+.front{
+	transition: all .5s;
+}
+
+.front:hover {
+	box-shadow: 0 10px 5px #000;
+	
+}
+
+/* btn > btn-link > logout {
+
+ 	padding: 15px;	
+    height: 54px;
+} */
+.navbar-inverse .btn-link {
+ 	padding: 15px;	
+/*     height: 54px; */
+	border: none;
+	position: 0;
+}
+
+
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }

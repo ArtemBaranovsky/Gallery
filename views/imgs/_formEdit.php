@@ -1,0 +1,99 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use app\models\sortImg;
+use yii\widgets\ActiveField;
+
+use yii\helpers\ArrayHelper;
+use app\models\Categories;
+// use yii\web\View;
+
+
+/* @var $this yii\web\View */
+/* @var $model app\models\sortImg */
+/* @var $form yii\widgets\ActiveForm */
+
+// Yii::$app->view->registerJsFile('/js/rooms-list.js', ['yii\web\JqueryAsset']);
+?>
+
+<img src="<?=Html::encode(Yii::$app->homeUrl.'uploads/'.$model->filepath) ?>" style="width:50%; display:block; margin: 0 auto;" alt="">
+<div class="sort-img-form">
+
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+
+    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'category')->dropDownList($data); ?>
+
+    <?= $form->field($model, 'description')->textarea(['rows' => '6', 'maxlength' => true]) ?>
+
+	<?= $form->field($model, 'filepath')->textInput(['maxlength' => true])->fileInput(['multiple' => true]) // imageFile 	доработать невыбор нового изображения ?>
+
+	<div class="form-group">
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+    </div>
+
+    <?php ActiveForm::end(); ?>
+<!-- Обрезка -->
+    <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <form class="avatar-form" action="crop.php" enctype="multipart/form-data" method="post">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title" id="avatar-modal-label">Изменить аватар</h4>
+            </div>
+            <div class="modal-body">
+              <div class="avatar-body">
+ 
+                <!-- Загрузка изображения и данных -->
+                <div class="avatar-upload">
+                  <input type="hidden" class="avatar-src" name="avatar_src">
+                  <input type="hidden" class="avatar-data" name="avatar_data">
+                  <label for="avatarInput">Локальная загрузка</label>
+                  <input type="file" class="avatar-input" id="avatarInput" name="avatar_file">
+                </div>
+ 
+                <!-- Кадрирование и просмотр -->
+                <div class="row">
+                  <div class="col-md-9">
+                    <div class="avatar-wrapper"></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="avatar-preview preview-lg"></div>
+                    <div class="avatar-preview preview-md"></div>
+                    <div class="avatar-preview preview-sm"></div>
+                  </div>
+                </div>
+ 
+                <div class="row avatar-btns">
+                  <div class="col-md-9">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="-90" title="Rotate -90 degrees">Поворот налево</button>
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="-15">-15 град</button>
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="-30">-30 град</button>
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="-45">-45 град</button>
+                    </div>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="90" title="Rotate 90 degrees">Поворот направо</button>
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="15">15 град</button>
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="30">30 град</button>
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="45">45 град</button>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary btn-block avatar-save">Готово</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div><!-- /.modal -->
+
+
+</div> 
+
+
